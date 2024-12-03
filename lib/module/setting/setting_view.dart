@@ -87,32 +87,6 @@ class SettingView extends HookConsumerWidget {
           ),
         )
     );
-
-    return Expanded(
-      child: ListView(children: <Widget>[
-        const SizedBox(height: 7),
-        const Text("Setting"),
-        divider,
-        GestureDetector(
-            child: Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const ColorChip(
-                    label: "Gender",
-                    color: Color.fromARGB(255, 234, 233, 234),
-                  ),
-                  Container(height: 10, color: const Color.fromARGB(255, 234, 233, 0))
-                ],
-              ),
-            ),
-            onTap: () => openDialog(context)
-            // do nothing openDialog(context)
-            ),
-        const Text("nick name"),
-        divider
-      ]),
-    );
   }
 }
 
