@@ -590,6 +590,7 @@ class _NavigationTransitionState extends State<NavigationTransition> {
       key: widget.scaffoldKey,
       appBar: widget.appBar,
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           RailTransition(
             animation: railAnimation,
