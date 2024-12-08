@@ -1,8 +1,8 @@
-#Sun Dec 01 22:16:37 CST 2024
-base.0=/Users/haha/Documents/workspace/flutter/helloworld/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/Users/haha/Documents/workspace/flutter/helloworld/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.2=/Users/haha/Documents/workspace/flutter/helloworld/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
-base.3=/Users/haha/Documents/workspace/flutter/helloworld/build/app/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex
+#Sun Dec 08 23:02:32 CST 2024
+base.0=/Users/haha/Documents/GitHub/fulttertest/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/Users/haha/Documents/GitHub/fulttertest/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/Users/haha/Documents/GitHub/fulttertest/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+base.3=/Users/haha/Documents/GitHub/fulttertest/build/app/intermediates/dex/debug/mergeProjectDexDebug/6/classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=1/classes.dex

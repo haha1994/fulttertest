@@ -64,7 +64,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Test',
+      themeMode: themeMode,
       theme: ThemeData(
         colorSchemeSeed: colorSelectionMethod == ColorSelectionMethod.colorSeed
             ? colorSelected.color

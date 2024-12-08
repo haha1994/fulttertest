@@ -16,6 +16,7 @@ class SettingsAppearanceSection extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
+    // final preferences = ref.watch(userPreferencesProvider);
 
     final children = [
       // AdaptiveSelectTile<LayoutMode>(

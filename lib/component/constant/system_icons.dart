@@ -5,6 +5,7 @@ import 'package:simple_icons/simple_icons.dart';
 
 abstract class SystemIcons {
   static const home = FluentIcons.home_12_regular;
+  static const email = Icons.email;
   static const search = FeatherIcons.search;
   static const library = FluentIcons.library_16_regular;
   static const music = FeatherIcons.music;
