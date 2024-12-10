@@ -3,8 +3,11 @@ import 'package:gap/gap.dart';
 import 'package:helloworld/component/adaptive/adaptive_select_tile.dart';
 import 'package:helloworld/module/setting/section_card_with_heading.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+
 
 import '../../component/constant/system_icons.dart';
+import '../../main.dart';
 
 class SettingsAppearanceSection extends HookConsumerWidget {
 
@@ -17,6 +20,13 @@ class SettingsAppearanceSection extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     // final preferences = ref.watch(userPreferencesProvider);
+    // 直接使用 ref 来监听和读取状态
+    final themeMode = ref.watch(themeModeProvider);
+
+    void toggleTheme() {
+      ref.read(themeModeProvider.notifier).state =
+      themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    }
 
     final children = [
       // AdaptiveSelectTile<LayoutMode>(
@@ -69,6 +79,8 @@ class SettingsAppearanceSection extends HookConsumerWidget {
         ],
         onChanged: (value) {
           if (value != null) {
+            toggleTheme();
+
             //preferencesNotifier.setThemeMode(value);
           }
         },
