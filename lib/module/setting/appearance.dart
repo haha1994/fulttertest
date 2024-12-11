@@ -7,6 +7,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../component/constant/system_icons.dart';
 import '../../main.dart';
+import 'color_scheme_picker_dialog.dart';
 
 class SettingsAppearanceSection extends HookConsumerWidget {
   final bool isGettingStarted;
@@ -20,6 +21,14 @@ class SettingsAppearanceSection extends HookConsumerWidget {
   Widget build(BuildContext context, ref) {
     // 直接使用 ref 来监听和读取状态
     final themeMode = ref.watch(themeModeProvider);
+
+    final pickColorScheme = useCallback(() {
+      return () => showDialog(
+          context: context,
+          builder: (context) {
+            return const ColorSchemePickerDialog();
+          });
+    }, []);
 
     final children = [
       // AdaptiveSelectTile<LayoutMode>(
@@ -74,6 +83,20 @@ class SettingsAppearanceSection extends HookConsumerWidget {
             ref.read(themeModeProvider.notifier).state = value;
           }
         },
+      ),
+      ListTile(
+        leading: const Icon(SystemIcons.palette),
+        title: Text("主题颜色"),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 15,
+          vertical: 5,
+        ),
+        trailing: ColorTile.compact(
+          color: Colors.red,
+          onPressed: pickColorScheme(),
+          isActive: true,
+        ),
+        onTap: pickColorScheme(),
       ),
     ];
 
