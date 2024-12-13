@@ -34,7 +34,7 @@ class _HomeViewState extends State<HomeView> {
             height: 72,
             child: GridView.builder(
               scrollDirection: Axis.horizontal,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
                 childAspectRatio: 1.0,
                 mainAxisSpacing: 4.0,
@@ -45,7 +45,7 @@ class _HomeViewState extends State<HomeView> {
                 return Container(
                   alignment: Alignment.center,
                   color: Colors.blue[(index * 100) % 900],
-                  child: Icon(Icons.all_inclusive),
+                  child: const Icon(Icons.all_inclusive),
                 );
               },
             ),

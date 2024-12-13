@@ -75,7 +75,7 @@ class SettingView extends HookConsumerWidget {
                           // onPressed: preferencesNotifier.reset,
                           // child: Text("context.l10n.restore_defaults"),
                           onPressed: () {  },
-                          child: Text("恢复默认值"),
+                          child: const Text("恢复默认值"),
                         ),
                       ),
                       const SizedBox(height: 10),

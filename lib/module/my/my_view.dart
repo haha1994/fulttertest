@@ -48,17 +48,17 @@ class MyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: LayoutBuilder(builder: (context, constraints) {
+    return LayoutBuilder(builder: (context, constraints) {
       if (constraints.maxWidth < narrowScreenWidthThreshold) {
         // 小屏幕
-        return SingleChildScrollView(
+        return const SingleChildScrollView(
           child: Column(
             children: [
               divider,
               // CustomScrollView(
               //   slivers: [MenuGrid()],
               // ),
-              const SettingsAppearanceSection(),
+              SettingsAppearanceSection(),
               divider,
               // schemeView(darkTheme),
             ],
@@ -66,21 +66,21 @@ class MyView extends StatelessWidget {
         );
       } else {
         // 大屏幕
-        return SingleChildScrollView(
+        return const SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8),
+            padding: EdgeInsets.all(8),
             child: Column(
               children: [
-                const SettingsAppearanceSection(),
-                const SizedBox(height: 16),
+                SettingsAppearanceSection(),
+                SizedBox(height: 16),
                 // const SettingsAppearanceSection(),
-                const SizedBox(height: 16),
+                SizedBox(height: 16),
               ],
             ),
           ),
         );
       }
-    }));
+    });
 
     // return Expanded(
     //   child: CustomScrollView(slivers: [

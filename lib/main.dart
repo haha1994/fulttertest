@@ -4,74 +4,37 @@ import 'package:helloworld/module/home/home_view.dart';
 import 'package:helloworld/module/my/my_view.dart';
 import 'package:helloworld/module/szdata/szdata.dart';
 import 'package:helloworld/module/szdata/szdata_view.dart';
+import 'package:helloworld/provider/user_preferences_provider.dart';
 import 'package:helloworld/util/constant.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import './login.dart';
 import './search.dart';
 
 void main() {
   runApp(
-    ProviderScope(
+    const ProviderScope(
       child: MyApp(),
     ),
   );
 }
 
-final themeModeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.light);
-
 class MyApp extends ConsumerWidget {
-  // ColorSeed colorSelected = ColorSeed.teal;
-  // ColorImageProvider imageSelected = ColorImageProvider.leaves;
-  // ColorScheme? imageColorScheme = const ColorScheme.light();
-  // ColorSelectionMethod colorSelectionMethod = ColorSelectionMethod.colorSeed;
-  //
-  // bool get useLightMode => switch (themeMode) {
-  //   ThemeMode.system =>
-  //   View.of(context).platformDispatcher.platformBrightness ==
-  //       Brightness.light,
-  //   ThemeMode.light => true,
-  //   ThemeMode.dark => false
-  // };
-  //
-  // void handleBrightnessChange(bool useLightMode) {
-  //   setState(() {
-  //     themeMode = useLightMode ? ThemeMode.light : ThemeMode.dark;
-  //   });
-  // }
-  //
-  // void handleColorSelect(int value) {
-  //   setState(() {
-  //     colorSelectionMethod = ColorSelectionMethod.colorSeed;
-  //     colorSelected = ColorSeed.values[value];
-  //   });
-  // }
-  //
-  // void handleImageSelect(int value) {
-  //   final String url = ColorImageProvider.values[value].url;
-  //   ColorScheme.fromImageProvider(provider: NetworkImage(url))
-  //       .then((newScheme) {
-  //     setState(() {
-  //       colorSelectionMethod = ColorSelectionMethod.image;
-  //       imageSelected = ColorImageProvider.values[value];
-  //       imageColorScheme = newScheme;
-  //     });
-  //   });
-  // }
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeModeProvider);
+    final userPreferences = ref.watch(userPreferencesProvider);
 
     return MaterialApp(
       title: 'Flutter Test',
-      themeMode: themeMode,
+      themeMode: userPreferences.themeMode,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorSchemeSeed: userPreferences.accentColorScheme.color,
+        brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
+        colorSchemeSeed: userPreferences.accentColorScheme.color,
         brightness: Brightness.dark,
-        primaryColor: Colors.black,
       ),
       home: const HomeView(
         title: "Home Page",

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:helloworld/component/adaptive/adaptive_select_tile.dart';
+import 'package:helloworld/component/constant/system_icons.dart';
 import 'package:helloworld/module/setting/section_card_with_heading.dart';
+import 'package:helloworld/provider/user_preferences_provider.dart';
+import 'package:helloworld/util/constant.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../component/constant/system_icons.dart';
-import '../../main.dart';
 import 'color_scheme_picker_dialog.dart';
 
 class SettingsAppearanceSection extends HookConsumerWidget {
@@ -20,7 +21,7 @@ class SettingsAppearanceSection extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     // 直接使用 ref 来监听和读取状态
-    final themeMode = ref.watch(themeModeProvider);
+    final userPreferences = ref.watch(userPreferencesProvider);
 
     final pickColorScheme = useCallback(() {
       return () => showDialog(
@@ -30,9 +31,14 @@ class SettingsAppearanceSection extends HookConsumerWidget {
           });
     }, []);
 
+    // var colorSeedList = List.generate(ColorSeed.values.length, (index) => {
+    //   ColorSeed currentColor = ColorSeed.values[index];
+    //
+    // });
+
     final children = [
       // AdaptiveSelectTile<LayoutMode>(
-      //   secondary: const Icon(SpotubeIcons.dashboard),
+      //   secondary: const Icon(SystemIcons.dashboard),
       //   title: Text(context.l10n.layout_mode),
       //   subtitle: Text(context.l10n.override_layout_settings),
       //   value: preferences.layoutMode,
@@ -58,10 +64,10 @@ class SettingsAppearanceSection extends HookConsumerWidget {
       // ),
       AdaptiveSelectTile<ThemeMode>(
         secondary: const Icon(SystemIcons.darkMode),
-        title: Text("主题"),
+        title: const Text("主题"),
         // title: Text(context.l10n.theme),
-        value: themeMode,
-        options: [
+        value: userPreferences.themeMode,
+        options: const [
           DropdownMenuItem(
             value: ThemeMode.dark,
             // child: Text(context.l10n.dark),
@@ -80,19 +86,19 @@ class SettingsAppearanceSection extends HookConsumerWidget {
         ],
         onChanged: (value) {
           if (value != null) {
-            ref.read(themeModeProvider.notifier).state = value;
+            ref.read(userPreferencesProvider.notifier).setThemeMode(value);
           }
         },
       ),
       ListTile(
         leading: const Icon(SystemIcons.palette),
-        title: Text("主题颜色"),
+        title: const Text("主题颜色"),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 15,
           vertical: 5,
         ),
         trailing: ColorTile.compact(
-          color: Colors.red,
+          color: userPreferences.accentColorScheme.color,
           onPressed: pickColorScheme(),
           isActive: true,
         ),
