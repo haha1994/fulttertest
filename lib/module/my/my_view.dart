@@ -3,8 +3,6 @@ import 'package:helloworld/component/constant/grid_menu.dart';
 
 import '../setting/appearance.dart';
 
-const Widget divider = SizedBox(height: 10);
-
 const double narrowScreenWidthThreshold = 500;
 
 class MenuGrid extends StatelessWidget {
@@ -53,13 +51,12 @@ class MyView extends StatelessWidget {
         // 小屏幕
         return const SingleChildScrollView(
           child: Column(
+            spacing: 10,
             children: [
-              divider,
               // CustomScrollView(
               //   slivers: [MenuGrid()],
               // ),
               SettingsAppearanceSection(),
-              divider,
               // schemeView(darkTheme),
             ],
           ),
@@ -70,11 +67,10 @@ class MyView extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(8),
             child: Column(
+              spacing: 10,
               children: [
                 SettingsAppearanceSection(),
-                SizedBox(height: 16),
                 // const SettingsAppearanceSection(),
-                SizedBox(height: 16),
               ],
             ),
           ),

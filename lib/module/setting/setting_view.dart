@@ -4,8 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'appearance.dart';
 
-const Widget divider = SizedBox(height: 10);
-
 const double narrowScreenWidthThreshold = 400;
 
 class SettingView extends HookConsumerWidget {
