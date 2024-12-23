@@ -4,6 +4,7 @@ import 'package:helloworld/module/szdata/szdata_api.dart';
 import 'package:logger/logger.dart';
 
 class SzDataView extends StatefulWidget {
+  static const String name = "szDataView";
   const SzDataView({super.key});
 
   @override

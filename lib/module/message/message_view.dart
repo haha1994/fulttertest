@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class MessageView extends StatelessWidget {
-  const MessageView({super.key});
+class MessagePage extends HookConsumerWidget {
+  static const name = 'message';
+  const MessagePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final textTheme = Theme.of(context)
         .textTheme
         .apply(displayColor: Theme.of(context).colorScheme.onSurface);

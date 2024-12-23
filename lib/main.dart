@@ -9,6 +9,7 @@ import 'package:helloworld/util/constant.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import './login.dart';
 import './search.dart';
+import 'component/constant/route.dart';
 
 void main() {
   runApp(
@@ -24,6 +25,41 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userPreferences = ref.watch(userPreferencesProvider);
+    final router = ref.watch(routerProvider);
+
+    return MaterialApp.router(
+      title: 'Flutter Test',
+      themeMode: userPreferences.themeMode,
+      theme: ThemeData(
+        colorSchemeSeed: userPreferences.accentColorScheme.color,
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        colorSchemeSeed: userPreferences.accentColorScheme.color,
+        brightness: Brightness.dark,
+      ),
+      routerConfig: router,
+      // builder: (context, child) {
+      //   child = ScrollConfiguration(
+      //     behavior: ScrollConfiguration.of(context).copyWith(
+      //       dragDevices: null
+      //       // dragDevices: hasTouchSupport
+      //       //     ? {
+      //       //   PointerDeviceKind.touch,
+      //       //   PointerDeviceKind.stylus,
+      //       //   PointerDeviceKind.invertedStylus,
+      //       // }
+      //       //     : null,
+      //     ),
+      //     child: child!,
+      //   );
+      //
+      //   // if (kIsDesktop && !kIsMacOS) child = DragToResizeArea(child: child);
+      //
+      //   return child;
+      // },
+    );
+
 
     return MaterialApp(
       title: 'Flutter Test',
@@ -41,9 +77,9 @@ class MyApp extends ConsumerWidget {
       ),
       routes: {
         "new_page": (context) => const NewRoute(text: "test"),
-        "login": (context) => const FormTestRoute(),
+        "login": (context) => const LoginPage(),
         // "search": (context) => const SearchRoute(),
-        "search": (context) => const MyView(),
+        "search": (context) => const MyPage(),
         "szdata": (context) => const InfiniteListView(),
         // "home": (context) => Home(
         //     useLightMode: useLightMode,
@@ -129,8 +165,8 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: {
         "new_page": (context) => const NewRoute(text: "test"),
-        "login": (context) => const FormTestRoute(),
-        "search": (context) => const SearchRoute(),
+        "login": (context) => const LoginPage(),
+        "search": (context) => const SearchPage(),
         "szdata": (context) => const InfiniteListView(),
         "home": (context) => Home(
             useLightMode: useLightMode,

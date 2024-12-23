@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/module/message/message_view.dart';
 import 'package:helloworld/module/my/my_view.dart';
-import 'package:helloworld/module/setting/setting_view.dart';
+import 'package:helloworld/module/setting/settings.dart';
 
 import '../../util/constant.dart';
 
@@ -132,9 +132,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         // ScreenSelected.color => const ColorPalettesScreen(),
         // ScreenSelected.typography => const TypographyScreen(),
         // ScreenSelected.elevation => const ElevationScreen()
-        ScreenSelected.color => const SettingView(),
-        ScreenSelected.typography => const MessageView(),
-        ScreenSelected.elevation => const MyView()
+        ScreenSelected.color => const SettingsPage(),
+        ScreenSelected.typography => const MessagePage(),
+        ScreenSelected.elevation => const MyPage()
       };
 
   PreferredSizeWidget createAppBar() {

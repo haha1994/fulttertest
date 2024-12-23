@@ -6,8 +6,9 @@ import 'appearance.dart';
 
 const double narrowScreenWidthThreshold = 400;
 
-class SettingView extends HookConsumerWidget {
-  const SettingView({super.key});
+class SettingsPage extends HookConsumerWidget {
+  static const String name = 'setting';
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context, ref) {

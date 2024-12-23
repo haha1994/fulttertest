@@ -41,8 +41,9 @@ class MenuGrid extends StatelessWidget {
   }
 }
 
-class MyView extends StatelessWidget {
-  const MyView({super.key});
+class MyPage extends StatelessWidget {
+  static const name = "my";
+  const MyPage({super.key});
 
   @override
   Widget build(BuildContext context) {

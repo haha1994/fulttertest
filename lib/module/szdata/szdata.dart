@@ -6,6 +6,7 @@ import 'package:helloworld/module/szdata/szdata_api.dart';
 import 'package:logger/logger.dart';
 
 class InfiniteListView extends StatefulWidget {
+  static const String name = "szdata";
   const InfiniteListView({super.key});
 
   @override
