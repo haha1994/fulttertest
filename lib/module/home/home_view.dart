@@ -4,6 +4,7 @@ import 'package:helloworld/util/restart_util.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../component/constant/route.dart';
+import '../szdata/szdata.dart';
 
 class HomeView extends HookConsumerWidget {
   static const String name = 'home';

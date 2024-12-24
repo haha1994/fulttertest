@@ -18,6 +18,7 @@ final routerProvider = Provider((ref) {
   return GoRouter(
     navigatorKey: rootNavigatorKey,
     routes: [
+      /// ShellRoute 允许你定义一个持久化的布局（通常是底部导航栏），并在不同的标签页之间切换内容而不重新加载整个布局
       ShellRoute(
         navigatorKey: shellRouteNavigatorKey,
         // builder: (context, state, child) => RootApp(child: child),
@@ -59,24 +60,19 @@ final routerProvider = Provider((ref) {
               // )
             // ],
           ),
-          GoRoute(
-            path: "/search",
-            name: SearchPage.name,
-            pageBuilder: (context, state) =>
-                const RouterPage(child: MyPage()),
-          ),
-          GoRoute(
-            path: "/szdata",
-            name: InfiniteListView.name,
-            pageBuilder: (context, state) =>
-            const RouterPage(child: InfiniteListView()),
-          ),
-          GoRoute(
-            path: "/szDataView",
-            name: SzDataView.name,
-            pageBuilder: (context, state) =>
-            const RouterPage(child: SzDataView()),
-          ),
+          /// 底部导航栏
+          // GoRoute(
+          //   path: "/szdata",
+          //   name: InfiniteListView.name,
+          //   pageBuilder: (context, state) =>
+          //   const RouterPage(child: InfiniteListView()),
+          // ),
+          // GoRoute(
+          //   path: "/szDataView",
+          //   name: SzDataView.name,
+          //   pageBuilder: (context, state) =>
+          //   const RouterPage(child: SzDataView()),
+          // ),
           // GoRoute(
           //     path: "/library",
           //     name: LibraryPage.name,
@@ -221,6 +217,24 @@ final routerProvider = Provider((ref) {
       //     child: GettingStarting(),
       //   ),
       // ),
+      GoRoute(
+        path: "/search",
+        name: SearchPage.name,
+        pageBuilder: (context, state) =>
+        const RouterPage(child: MyPage()),
+      ),
+      GoRoute(
+        path: "/szdata",
+        name: InfiniteListView.name,
+        pageBuilder: (context, state) =>
+        const RouterPage(child: InfiniteListView()),
+      ),
+      GoRoute(
+        path: "/szDataView",
+        name: SzDataView.name,
+        pageBuilder: (context, state) =>
+        const RouterPage(child: SzDataView()),
+      ),
       GoRoute(
         path: "/login",
         name: LoginPage.name,
