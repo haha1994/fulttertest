@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/component/constant/grid_menu.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../setting/appearance.dart';
 
@@ -41,56 +42,52 @@ class MenuGrid extends StatelessWidget {
   }
 }
 
-class MyPage extends StatelessWidget {
+class MyPage extends HookConsumerWidget {
   static const name = "my";
   const MyPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < narrowScreenWidthThreshold) {
-        // 小屏幕
-        return const SingleChildScrollView(
-          child: Column(
-            spacing: 10,
-            children: [
-              // CustomScrollView(
-              //   slivers: [MenuGrid()],
-              // ),
-              SettingsAppearanceSection(),
-              // schemeView(darkTheme),
-            ],
-          ),
-        );
-      } else {
-        // 大屏幕
-        return const SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(8),
-            child: Column(
-              spacing: 10,
-              children: [
-                SettingsAppearanceSection(),
-                // const SettingsAppearanceSection(),
-              ],
+  Widget build(BuildContext context, ref) {
+    return SafeArea(
+      bottom: false,
+      child: Scaffold(
+        // appBar: PageWindowTitleBar(
+        //   title: Text(context.l10n.settings),
+        //   centerTitle: true,
+        //   automaticallyImplyLeading: true,
+        // ),
+        body: Scrollbar(
+          // controller: controller,
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 1366),
+              child: ScrollConfiguration(
+                behavior: const ScrollBehavior().copyWith(scrollbars: false),
+                child: ListView(
+                  // controller: controller,
+                  children: [
+                    // const SettingsAccountSection(),
+                    // const SettingsLanguageRegionSection(),
+                    const SettingsAppearanceSection(),
+                    // const SettingsPlaybackSection(),
+                    // const SettingsDownloadsSection(),
+                    // if (kIsDesktop) const SettingsDesktopSection(),
+                    // if (!kIsWeb) const SettingsDevelopersSection(),
+                    // const SettingsAboutSection(),
+                    // Center(
+                    //   child: FilledButton(
+                    //     onPressed: preferencesNotifier.reset,
+                    //     child: Text(context.l10n.restore_defaults),
+                    //   ),
+                    // ),
+                    const SizedBox(height: 10),
+                  ],
+                ),
+              ),
             ),
           ),
-        );
-      }
-    });
-
-    // return Expanded(
-    //   child: CustomScrollView(slivers: [
-    //     SliverToBoxAdapter(
-    //       child: Padding(
-    //         padding: const EdgeInsets.fromLTRB(16.0, 20, 16.0, 0),
-    //         child: Text(
-    //           'My View',
-    //           style: Theme.of(context).textTheme.titleLarge,
-    //         ),
-    //       ),
-    //     )
-    //   ]),
-    // );
+        ),
+      ),
+    );
   }
 }

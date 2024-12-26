@@ -39,25 +39,25 @@ class MyApp extends ConsumerWidget {
         brightness: Brightness.dark,
       ),
       routerConfig: router,
-      // builder: (context, child) {
-      //   child = ScrollConfiguration(
-      //     behavior: ScrollConfiguration.of(context).copyWith(
-      //       dragDevices: null
-      //       // dragDevices: hasTouchSupport
-      //       //     ? {
-      //       //   PointerDeviceKind.touch,
-      //       //   PointerDeviceKind.stylus,
-      //       //   PointerDeviceKind.invertedStylus,
-      //       // }
-      //       //     : null,
-      //     ),
-      //     child: child!,
-      //   );
-      //
-      //   // if (kIsDesktop && !kIsMacOS) child = DragToResizeArea(child: child);
-      //
-      //   return child;
-      // },
+      builder: (context, child) {
+        child = ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(
+            dragDevices: null
+            // dragDevices: hasTouchSupport
+            //     ? {
+            //   PointerDeviceKind.touch,
+            //   PointerDeviceKind.stylus,
+            //   PointerDeviceKind.invertedStylus,
+            // }
+            //     : null,
+          ),
+          child: child!,
+        );
+
+        // if (kIsDesktop && !kIsMacOS) child = DragToResizeArea(child: child);
+
+        return child;
+      },
     );
 
 
