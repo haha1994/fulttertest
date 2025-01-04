@@ -6,9 +6,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../component/constant/route.dart';
 import '../szdata/szdata.dart';
 
-class HomeView extends HookConsumerWidget {
+class HomePage extends HookConsumerWidget {
   static const String name = 'home';
-  const HomeView({super.key, required this.title});
+  const HomePage({super.key, required this.title});
 
   final String title;
 
@@ -166,7 +166,7 @@ class HomeView extends HookConsumerWidget {
   }
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomePage> {
   int _counter = 0;
 
   void _incrementCounter() {

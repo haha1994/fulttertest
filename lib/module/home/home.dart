@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:helloworld/module/message/message_view.dart';
-import 'package:helloworld/module/my/my_view.dart';
+import 'package:helloworld/module/message/message_page.dart';
+import 'package:helloworld/module/my/my_page.dart';
 import 'package:helloworld/module/setting/settings.dart';
 
 import '../../util/constant.dart';
@@ -19,7 +19,6 @@ class Home extends StatefulWidget {
   const Home({
     super.key,
     required this.useLightMode,
-    required this.useMaterial3,
     required this.colorSelected,
     required this.handleBrightnessChange,
     required this.handleColorSelect,
@@ -29,7 +28,7 @@ class Home extends StatefulWidget {
   });
 
   final bool useLightMode;
-  final bool useMaterial3;
+  final bool useMaterial3 = true;
   final ColorSeed colorSelected;
   final ColorImageProvider imageSelected;
   final ColorSelectionMethod colorSelectionMethod;

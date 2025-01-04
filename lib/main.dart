@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart' hide Page;
 import 'package:helloworld/module/home/home.dart';
-import 'package:helloworld/module/home/home_view.dart';
-import 'package:helloworld/module/my/my_view.dart';
+import 'package:helloworld/module/home/home_page.dart';
 import 'package:helloworld/module/szdata/szdata.dart';
 import 'package:helloworld/module/szdata/szdata_view.dart';
 import 'package:helloworld/provider/user_preferences_provider.dart';
@@ -57,40 +56,6 @@ class MyApp extends ConsumerWidget {
         // if (kIsDesktop && !kIsMacOS) child = DragToResizeArea(child: child);
 
         return child;
-      },
-    );
-
-
-    return MaterialApp(
-      title: 'Flutter Test',
-      themeMode: userPreferences.themeMode,
-      theme: ThemeData(
-        colorSchemeSeed: userPreferences.accentColorScheme.color,
-        brightness: Brightness.light,
-      ),
-      darkTheme: ThemeData(
-        colorSchemeSeed: userPreferences.accentColorScheme.color,
-        brightness: Brightness.dark,
-      ),
-      home: const HomeView(
-        title: "Home Page",
-      ),
-      routes: {
-        "new_page": (context) => const NewRoute(text: "test"),
-        "login": (context) => const LoginPage(),
-        // "search": (context) => const SearchRoute(),
-        "search": (context) => const MyPage(),
-        "szdata": (context) => const InfiniteListView(),
-        // "home": (context) => Home(
-        //     useLightMode: useLightMode,
-        //     colorSelected: colorSelected,
-        //     handleBrightnessChange: handleBrightnessChange,
-        //     handleColorSelect: handleColorSelect,
-        //     handleImageSelect: handleImageSelect,
-        //     colorSelectionMethod: colorSelectionMethod,
-        //     imageSelected: imageSelected),
-        "szDataView": (context) => const SzDataView(),
-        //"/": (context) => const HomeView(title: 'Home Page'), //注册首页路由
       },
     );
   }
@@ -160,7 +125,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: useMaterial3,
         brightness: Brightness.dark,
       ),
-      home: const HomeView(
+      home: const HomePage(
         title: "Home Page",
       ),
       routes: {
@@ -170,7 +135,7 @@ class _MyAppState extends State<MyApp> {
         "szdata": (context) => const InfiniteListView(),
         "home": (context) => Home(
             useLightMode: useLightMode,
-            useMaterial3: useMaterial3,
+            // useMaterial3: useMaterial3,
             colorSelected: colorSelected,
             handleBrightnessChange: handleBrightnessChange,
             handleColorSelect: handleColorSelect,

@@ -4,8 +4,10 @@ import 'package:go_router/go_router.dart';
 import 'package:helloworld/login.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../module/home/home_view.dart';
-import '../../module/my/my_view.dart';
+import '../../module/home/home_page.dart';
+import '../../module/message/message_page.dart';
+import '../../module/my/my_page.dart';
+import '../../module/root/root_app.dart';
 import '../../module/setting/settings.dart';
 import '../../module/szdata/szdata.dart';
 import '../../module/szdata/szdata_view.dart';
@@ -21,12 +23,12 @@ final routerProvider = Provider((ref) {
       /// ShellRoute 允许你定义一个持久化的布局（通常是底部导航栏），并在不同的标签页之间切换内容而不重新加载整个布局
       ShellRoute(
         navigatorKey: shellRouteNavigatorKey,
-        // builder: (context, state, child) => RootApp(child: child),
-        builder: (context, state, child) => const HomeView(title: 'Home Page',),
+        builder: (context, state, child) => RootApp(child: child),
+        // builder: (context, state, child) => const HomeView(title: 'Home Page',),
         routes: [
           GoRoute(
             path: "/",
-            name: HomeView.name,
+            name: HomePage.name,
             // redirect: (context, state) async {
             //   /// 未登陆和首次登陆
             //   // final auth = await ref.read(authenticationProvider.future);
@@ -37,30 +39,49 @@ final routerProvider = Provider((ref) {
             //
             //   return null;
             // },
-            pageBuilder: (context, state) =>
-                const RouterPage(child: HomeView(title: 'Home Page',)),
+            pageBuilder: (context, state) => const RouterPage(
+                child: HomePage(
+              title: 'Home Page',
+            )),
             // routes: [
-              // GoRoute(
-              //   path: "genre/:categoryId",
-              //   name: GenrePlaylistsPage.name,
-              //   pageBuilder: (context, state) => RouterPage(
-              //     child: GenrePlaylistsPage(
-              //       category: state.extra as Category,
-              //     ),
-              //   ),
-              // ),
-              // GoRoute(
-              //   path: "feeds/:feedId",
-              //   name: HomeFeedSectionPage.name,
-              //   pageBuilder: (context, state) => RouterPage(
-              //     child: HomeFeedSectionPage(
-              //       sectionUri: state.pathParameters["feedId"] as String,
-              //     ),
-              //   ),
-              // )
+            // GoRoute(
+            //   path: "genre/:categoryId",
+            //   name: GenrePlaylistsPage.name,
+            //   pageBuilder: (context, state) => RouterPage(
+            //     child: GenrePlaylistsPage(
+            //       category: state.extra as Category,
+            //     ),
+            //   ),
+            // ),
+            // GoRoute(
+            //   path: "feeds/:feedId",
+            //   name: HomeFeedSectionPage.name,
+            //   pageBuilder: (context, state) => RouterPage(
+            //     child: HomeFeedSectionPage(
+            //       sectionUri: state.pathParameters["feedId"] as String,
+            //     ),
+            //   ),
+            // )
             // ],
           ),
+
           /// 底部导航栏
+          GoRoute(
+            path: "/search",
+            name: SearchPage.name,
+            pageBuilder: (context, state) => const RouterPage(child: SearchPage()),
+          ),
+          GoRoute(
+            path: "/my",
+            name: MyPage.name,
+            pageBuilder: (context, state) => const RouterPage(child: MyPage()),
+          ),
+          GoRoute(
+            path: "/message",
+            name: MessagePage.name,
+            pageBuilder: (context, state) =>
+                const RouterPage(child: MessagePage()),
+          ),
           // GoRoute(
           //   path: "/szdata",
           //   name: InfiniteListView.name,
@@ -218,22 +239,17 @@ final routerProvider = Provider((ref) {
       //   ),
       // ),
       GoRoute(
-        path: "/search",
-        name: SearchPage.name,
-        pageBuilder: (context, state) =>
-        const RouterPage(child: MyPage()),
-      ),
-      GoRoute(
         path: "/szdata",
         name: InfiniteListView.name,
+        parentNavigatorKey: rootNavigatorKey,
         pageBuilder: (context, state) =>
-        const RouterPage(child: InfiniteListView()),
+            const RouterPage(child: InfiniteListView()),
       ),
       GoRoute(
         path: "/szDataView",
         name: SzDataView.name,
-        pageBuilder: (context, state) =>
-        const RouterPage(child: SzDataView()),
+        parentNavigatorKey: rootNavigatorKey,
+        pageBuilder: (context, state) => const RouterPage(child: SzDataView()),
       ),
       GoRoute(
         path: "/login",
