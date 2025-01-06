@@ -115,6 +115,8 @@ class RootApp extends HookConsumerWidget {
             key: const Key('MediumLarge primaryNavigation'),
             builder: (_) {
               return AdaptiveScaffold.standardNavigationRail(
+                // 展开label
+                extended: true,
                 selectedIndex: selectedIndex,
                 onDestinationSelected: (index) {
                   GoRouter.of(context).goNamed(navbarTileList[index].name);
@@ -129,6 +131,7 @@ class RootApp extends HookConsumerWidget {
             key: const Key('Large primaryNavigation'),
             builder: (_) {
               return AdaptiveScaffold.standardNavigationRail(
+                extended: true,
                 selectedIndex: selectedIndex,
                 onDestinationSelected: (index) {
                   GoRouter.of(context).goNamed(navbarTileList[index].name);
@@ -143,6 +146,7 @@ class RootApp extends HookConsumerWidget {
             key: const Key('ExtraLarge primaryNavigation'),
             builder: (_) {
               return AdaptiveScaffold.standardNavigationRail(
+                extended: true,
                 selectedIndex: selectedIndex,
                 onDestinationSelected: (index) {
                   GoRouter.of(context).goNamed(navbarTileList[index].name);
