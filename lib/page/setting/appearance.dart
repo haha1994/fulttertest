@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:helloworld/component/adaptive/adaptive_select_tile.dart';
-import 'package:helloworld/component/constant/system_icons.dart';
-import 'package:helloworld/module/setting/section_card_with_heading.dart';
-import 'package:helloworld/provider/user_preferences_provider.dart';
-import 'package:helloworld/util/constant.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:helloworld/component/adaptive/adaptive_select_tile.dart';
+import 'package:helloworld/component/constant/system_icons.dart';
+import 'package:helloworld/page/setting/section_card_with_heading.dart';
+import 'package:helloworld/provider/user_preferences_provider.dart';
+import 'package:helloworld/util/constant.dart';
 
 import 'color_scheme_picker_dialog.dart';
 

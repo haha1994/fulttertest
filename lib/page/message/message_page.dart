@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MessagePage extends HookConsumerWidget {
-  static const name = 'message';
+  static const String name = 'message';
+  static const String path = '/message';
   const MessagePage({super.key});
 
   @override
@@ -15,7 +16,7 @@ class MessagePage extends HookConsumerWidget {
       child: ListView(
           children: const <Widget>[
             SizedBox(height: 7),
-            Text("主页")
+            Text("消息")
           ]),
     );
   }

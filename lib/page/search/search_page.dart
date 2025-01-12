@@ -4,7 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 
 class SearchPage extends HookConsumerWidget {
-  static const name = 'search';
+  static const String name = 'search';
+  static const String path = '/search';
   const SearchPage({super.key});
 
   @override
@@ -15,7 +16,7 @@ class SearchPage extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Serach"),
+        title: const Text("Search"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),

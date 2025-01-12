@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../module/home/home_page.dart';
-import '../../module/message/message_page.dart';
-import '../../module/my/my_page.dart';
-import '../../search.dart';
+import '../../page/pages.dart';
 import 'system_icons.dart';
 
 class SideBarTiles {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/component/constant/app_router.dart';
 
 import 'package:helloworld/util/restart_util.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -8,6 +9,7 @@ import '../szdata/szdata.dart';
 
 class HomePage extends HookConsumerWidget {
   static const String name = 'home';
+  static const String path = '/home';
   const HomePage({super.key, required this.title});
 
   final String title;
@@ -15,6 +17,7 @@ class HomePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
+    final appRouter = ref.watch(appRouterProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -136,6 +139,7 @@ class HomePage extends HookConsumerWidget {
               //导航到新路由
               // Navigator.pushNamed(context, "szdata");
               router.push("/szdata");
+              appRouter.push("/szdata");
             },
           ),
           TextButton(
@@ -146,6 +150,7 @@ class HomePage extends HookConsumerWidget {
               //导航到新路由
               // Navigator.pushNamed(context, "szDataView");
               router.push("/szDataView");
+              appRouter.push("/szDataView");
             },
           ),
           // const Text(

@@ -3,9 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:helloworld/module/message/message_page.dart';
-import 'package:helloworld/module/my/my_page.dart';
-import 'package:helloworld/module/setting/settings.dart';
+import 'package:helloworld/page/pages.dart';
 
 import '../../util/constant.dart';
 

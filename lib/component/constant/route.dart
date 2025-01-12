@@ -1,17 +1,10 @@
 // import 'package:flutter/foundation.dart' hide Category;
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:helloworld/login.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../module/home/home_page.dart';
-import '../../module/message/message_page.dart';
-import '../../module/my/my_page.dart';
-import '../../module/root/root_app.dart';
-import '../../module/setting/settings.dart';
-import '../../module/szdata/szdata.dart';
-import '../../module/szdata/szdata_view.dart';
-import '../../search.dart';
+import '../../page/pages.dart';
+import '../../page/root/root_app.dart';
 import '../common/router_page.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -251,14 +244,14 @@ final routerProvider = Provider((ref) {
         parentNavigatorKey: rootNavigatorKey,
         pageBuilder: (context, state) => const RouterPage(child: SzDataView()),
       ),
-      GoRoute(
-        path: "/login",
-        name: LoginPage.name,
-        parentNavigatorKey: rootNavigatorKey,
-        pageBuilder: (context, state) => const RouterPage(
-          child: LoginPage(),
-        ),
-      ),
+      // GoRoute(
+      //   path: "/login",
+      //   name: LoginPage.name,
+      //   parentNavigatorKey: rootNavigatorKey,
+      //   pageBuilder: (context, state) => const RouterPage(
+      //     child: LoginPage(),
+      //   ),
+      // ),
       // GoRoute(
       //   path: "/lastfm-login",
       //   name: LastFMLoginPage.name,

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/component/constant/grid_menu.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../util/constant.dart';
 import '../setting/appearance.dart';
-
-const double narrowScreenWidthThreshold = 500;
 
 class MenuGrid extends StatelessWidget {
   const MenuGrid({super.key});
@@ -43,7 +42,8 @@ class MenuGrid extends StatelessWidget {
 }
 
 class MyPage extends HookConsumerWidget {
-  static const name = "my";
+  static const String name = "my";
+  static const String path = "/my";
   const MyPage({super.key});
 
   @override

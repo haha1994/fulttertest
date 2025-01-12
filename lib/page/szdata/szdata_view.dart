@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:helloworld/module/szdata/szdata_api.dart';
+import 'package:helloworld/page/szdata/szdata_api.dart';
 import 'package:logger/logger.dart';
 
 class SzDataView extends StatefulWidget {
   static const String name = "szDataView";
+  static const String path = "/szDataView";
   const SzDataView({super.key});
 
   @override

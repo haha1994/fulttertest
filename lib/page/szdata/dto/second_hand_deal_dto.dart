@@ -1,5 +1,5 @@
 // 深圳二手房交易
-import 'package:helloworld/module/szdata/dto/second_hand_deal.dart';
+import 'package:helloworld/page/szdata/dto/second_hand_deal.dart';
 
 class SecondHandDealDto {
   String? date;

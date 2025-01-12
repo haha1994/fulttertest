@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart' hide Page;
-import 'package:helloworld/module/home/home.dart';
-import 'package:helloworld/module/home/home_page.dart';
-import 'package:helloworld/module/szdata/szdata.dart';
-import 'package:helloworld/module/szdata/szdata_view.dart';
+import 'package:helloworld/page/home/home.dart';
 import 'package:helloworld/provider/user_preferences_provider.dart';
 import 'package:helloworld/util/constant.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import './login.dart';
-import './search.dart';
+import 'component/constant/app_router.dart';
 import 'component/constant/route.dart';
+import 'page/pages.dart';
 
 void main() {
   runApp(
@@ -24,7 +21,8 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userPreferences = ref.watch(userPreferencesProvider);
-    final router = ref.watch(routerProvider);
+    // final router = ref.watch(routerProvider);
+    final appRouter = ref.watch(appRouterProvider);
 
     return MaterialApp.router(
       title: 'Flutter Test',
@@ -37,7 +35,7 @@ class MyApp extends ConsumerWidget {
         colorSchemeSeed: userPreferences.accentColorScheme.color,
         brightness: Brightness.dark,
       ),
-      routerConfig: router,
+      routerConfig: appRouter,
       builder: (context, child) {
         child = ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(

@@ -4,10 +4,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'appearance.dart';
 
-const double narrowScreenWidthThreshold = 400;
-
 class SettingsPage extends HookConsumerWidget {
-  static const String name = 'setting';
+  static const String name = 'settings';
+  static const String path = '/settings';
   const SettingsPage({super.key});
 
   @override

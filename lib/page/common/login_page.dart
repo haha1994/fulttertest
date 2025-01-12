@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
 
+import '../../component/constant/app_router.dart';
+
 class LoginPage extends HookConsumerWidget {
-  static const name = 'login';
+  static const String name = 'login';
+  static const String path = '/login';
   const LoginPage({super.key});
 
   @override
@@ -70,6 +73,7 @@ class LoginPage extends HookConsumerWidget {
                                       //验证通过提交数据
                                       logger.i(unameController.text);
                                       logger.i(pwdController.text);
+                                      AppRouter.authenticatedNotifier.value = true;
                                     }
                                   },
                                 );
@@ -89,6 +93,7 @@ class LoginPage extends HookConsumerWidget {
                                   //验证通过提交数据
                                   logger.i(unameController.text);
                                   logger.i(pwdController.text);
+                                  AppRouter.authenticatedNotifier.value = true;
                                 }
                               },
                             ),

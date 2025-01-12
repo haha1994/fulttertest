@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:helloworld/module/szdata/dto/second_hand_deal.dart';
+import 'package:helloworld/page/szdata/dto/second_hand_deal.dart';
 
 //import 'package:english_words/english_words.dart';
-import 'package:helloworld/module/szdata/szdata_api.dart';
+import 'package:helloworld/page/szdata/szdata_api.dart';
 import 'package:logger/logger.dart';
 
 class InfiniteListView extends StatefulWidget {
   static const String name = "szdata";
+  static const String path = "/szdata";
   const InfiniteListView({super.key});
 
   @override

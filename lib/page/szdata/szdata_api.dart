@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:helloworld/module/szdata/dto/second_hand_deal.dart';
-import 'package:helloworld/module/szdata/dto/second_hand_deal_dto.dart';
+import 'package:helloworld/page/szdata/dto/second_hand_deal.dart';
+import 'package:helloworld/page/szdata/dto/second_hand_deal_dto.dart';
 import 'package:logger/logger.dart';
 
 typedef RequestCallBack<T> = void Function(T value);

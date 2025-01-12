@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
-import 'package:helloworld/module/root/custom_navigation_bar.dart';
+import 'package:helloworld/page/root/custom_navigation_bar.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../component/constant/side_bar_tiles.dart';
@@ -33,36 +33,6 @@ class RootApp extends HookConsumerWidget {
       animationController.repeat();
       return () => animationController.dispose(); // 清理资源
     }, []);
-
-    final scaffold = Scaffold(
-      key: scaffoldKey,
-      body: child,
-      extendBody: true,
-      drawerScrimColor: Colors.transparent,
-      // endDrawer: kIsDesktop
-      //     ? Container(
-      //     constraints: const BoxConstraints(maxWidth: 800),
-      //     decoration: BoxDecoration(
-      //       boxShadow: theme.brightness == Brightness.light
-      //           ? null
-      //           : kElevationToShadow[8],
-      //     ),
-      //     margin: const EdgeInsets.only(
-      //       top: 40,
-      //       bottom: 100,
-      //     ),
-      //     child: Consumer(
-      //         builder: (context, ref, _) {
-      //           return Drawer(
-      //             child: const CustomDrawer(),
-      //           );
-      //         }
-      //     );
-      // )
-      //     : null,
-      // 桌面端显示抽屉
-      bottomNavigationBar: const CustomNavigationBar(),
-    );
 
     final routerState = GoRouterState.of(context);
 
@@ -191,6 +161,36 @@ class RootApp extends HookConsumerWidget {
           ),
         )
       }),
+    );
+
+    final scaffold = Scaffold(
+      key: scaffoldKey,
+      body: child,
+      extendBody: true,
+      drawerScrimColor: Colors.transparent,
+      // endDrawer: kIsDesktop
+      //     ? Container(
+      //     constraints: const BoxConstraints(maxWidth: 800),
+      //     decoration: BoxDecoration(
+      //       boxShadow: theme.brightness == Brightness.light
+      //           ? null
+      //           : kElevationToShadow[8],
+      //     ),
+      //     margin: const EdgeInsets.only(
+      //       top: 40,
+      //       bottom: 100,
+      //     ),
+      //     child: Consumer(
+      //         builder: (context, ref, _) {
+      //           return Drawer(
+      //             child: const CustomDrawer(),
+      //           );
+      //         }
+      //     );
+      // )
+      //     : null,
+      // 桌面端显示抽屉
+      // bottomNavigationBar: const CustomNavigationBar(),
     );
 
     return layout;
