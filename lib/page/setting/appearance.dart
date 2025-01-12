@@ -6,7 +6,6 @@ import 'package:helloworld/component/adaptive/adaptive_select_tile.dart';
 import 'package:helloworld/component/constant/system_icons.dart';
 import 'package:helloworld/page/setting/section_card_with_heading.dart';
 import 'package:helloworld/provider/user_preferences_provider.dart';
-import 'package:helloworld/util/constant.dart';
 
 import 'color_scheme_picker_dialog.dart';
 

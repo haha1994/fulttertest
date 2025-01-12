@@ -32,6 +32,7 @@ class AppRouter {
 
   /// The router with the routes of pages that should be displayed.
   static final GoRouter router = GoRouter(
+    initialLocation: '/home',
     navigatorKey: rootNavigatorKey,
     debugLogDiagnostics: true,
     errorPageBuilder: (BuildContext context, GoRouterState state) {

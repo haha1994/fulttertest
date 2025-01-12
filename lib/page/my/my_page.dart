@@ -65,10 +65,10 @@ class MyPage extends HookConsumerWidget {
                 behavior: const ScrollBehavior().copyWith(scrollbars: false),
                 child: ListView(
                   // controller: controller,
-                  children: [
+                  children: const [
                     // const SettingsAccountSection(),
                     // const SettingsLanguageRegionSection(),
-                    const SettingsAppearanceSection(),
+                    SettingsAppearanceSection(),
                     // const SettingsPlaybackSection(),
                     // const SettingsDownloadsSection(),
                     // if (kIsDesktop) const SettingsDesktopSection(),
@@ -80,7 +80,7 @@ class MyPage extends HookConsumerWidget {
                     //     child: Text(context.l10n.restore_defaults),
                     //   ),
                     // ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10),
                   ],
                 ),
               ),

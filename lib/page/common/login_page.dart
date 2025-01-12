@@ -62,24 +62,6 @@ class LoginPage extends HookConsumerWidget {
                       child: Row(
                         children: <Widget>[
                           Expanded(
-                            // 通过Builder来获取ElevatedButton所在widget树的真正context(Element)
-                              child: Builder(builder: (context) {
-                                return ElevatedButton(
-                                  //padding: const EdgeInsets.all(16.0),
-                                  child: const Text("登录"),
-                                  onPressed: () {
-                                    //由于本widget也是Form的子代widget，所以可以通过下面方式获取FormState
-                                    if (Form.of(context).validate()) {
-                                      //验证通过提交数据
-                                      logger.i(unameController.text);
-                                      logger.i(pwdController.text);
-                                      AppRouter.authenticatedNotifier.value = true;
-                                    }
-                                  },
-                                );
-                              })
-                          ),
-                          Expanded(
                             child: ElevatedButton(
                               child: const Padding(
                                 padding: EdgeInsets.all(16.0),
