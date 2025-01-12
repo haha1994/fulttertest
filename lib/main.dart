@@ -4,7 +4,6 @@ import 'package:helloworld/provider/user_preferences_provider.dart';
 import 'package:helloworld/util/constant.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'component/constant/app_router.dart';
-import 'component/constant/route.dart';
 import 'page/pages.dart';
 
 void main() {
@@ -21,7 +20,6 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userPreferences = ref.watch(userPreferencesProvider);
-    // final router = ref.watch(routerProvider);
     final appRouter = ref.watch(appRouterProvider);
 
     return MaterialApp.router(
@@ -127,7 +125,6 @@ class _MyAppState extends State<MyApp> {
         title: "Home Page",
       ),
       routes: {
-        "new_page": (context) => const NewRoute(text: "test"),
         "login": (context) => const LoginPage(),
         "search": (context) => const SearchPage(),
         "szdata": (context) => const InfiniteListView(),
