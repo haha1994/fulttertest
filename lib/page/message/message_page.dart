@@ -1,23 +1,45 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MessagePage extends HookConsumerWidget {
   static const String name = 'message';
   static const String path = '/message';
+
   const MessagePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final textTheme = Theme.of(context)
-        .textTheme
-        .apply(displayColor: Theme.of(context).colorScheme.onSurface);
 
-    return Expanded(
-      child: ListView(
-          children: const <Widget>[
-            SizedBox(height: 7),
-            Text("消息")
-          ]),
+    return CustomScrollView(
+      slivers: <Widget>[
+        CupertinoSliverNavigationBar(
+          largeTitle: Text('消息',
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineLarge
+                  ?.copyWith(fontWeight: FontWeight.w600)),
+          middle: Text(
+            '消息',
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          alwaysShowMiddle: false,
+          backgroundColor: Theme.of(context).colorScheme.surface,
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              return ListTile(
+                leading: CircleAvatar(
+                  child: Text('${index + 1}'),
+                ),
+                title: Text('Item ${index + 1}'),
+              );
+            },
+            childCount: 20,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/component/constant/grid_menu.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -44,50 +45,50 @@ class MenuGrid extends StatelessWidget {
 class MyPage extends HookConsumerWidget {
   static const String name = "my";
   static const String path = "/my";
+
   const MyPage({super.key});
 
   @override
   Widget build(BuildContext context, ref) {
-    return SafeArea(
-      bottom: false,
-      child: Scaffold(
-        // appBar: PageWindowTitleBar(
-        //   title: Text(context.l10n.settings),
-        //   centerTitle: true,
-        //   automaticallyImplyLeading: true,
-        // ),
-        body: Scrollbar(
-          // controller: controller,
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 1366),
-              child: ScrollConfiguration(
-                behavior: const ScrollBehavior().copyWith(scrollbars: false),
-                child: ListView(
-                  // controller: controller,
-                  children: const [
-                    // const SettingsAccountSection(),
-                    // const SettingsLanguageRegionSection(),
-                    SettingsAppearanceSection(),
-                    // const SettingsPlaybackSection(),
-                    // const SettingsDownloadsSection(),
-                    // if (kIsDesktop) const SettingsDesktopSection(),
-                    // if (!kIsWeb) const SettingsDevelopersSection(),
-                    // const SettingsAboutSection(),
-                    // Center(
-                    //   child: FilledButton(
-                    //     onPressed: preferencesNotifier.reset,
-                    //     child: Text(context.l10n.restore_defaults),
-                    //   ),
-                    // ),
-                    SizedBox(height: 10),
-                  ],
-                ),
-              ),
-            ),
-          ),
+    return CustomScrollView(slivers: <Widget>[
+      CupertinoSliverNavigationBar(
+        largeTitle: Text('我的',
+            style: Theme.of(context)
+                .textTheme
+                .headlineLarge
+                ?.copyWith(fontWeight: FontWeight.w600)),
+        middle: Text(
+          '我的',
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
+        alwaysShowMiddle: false,
+        backgroundColor: Theme.of(context).colorScheme.surface,
       ),
-    );
+      SliverList(
+        delegate: SliverChildListDelegate([const SettingsAppearanceSection(),])
+      ),
+      const SliverToBoxAdapter(
+        child: SizedBox(
+          height: 800,
+          child: Center(child: Text('滚动内容区域'),),
+        ),
+      )
+    ]);
+
+    // const SettingsAccountSection(),
+    // const SettingsLanguageRegionSection(),
+    // SettingsAppearanceSection(),
+    // const SettingsPlaybackSection(),
+    // const SettingsDownloadsSection(),
+    // if (kIsDesktop) const SettingsDesktopSection(),
+    // if (!kIsWeb) const SettingsDevelopersSection(),
+    // const SettingsAboutSection(),
+    // Center(
+    //   child: FilledButton(
+    //     onPressed: preferencesNotifier.reset,
+    //     child: Text(context.l10n.restore_defaults),
+    //   ),
+    // ),
+
   }
 }
