@@ -3,24 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MessagePage extends HookConsumerWidget {
-  static const String name = 'message';
+  static const String name = 'Message';
   static const String path = '/message';
 
   const MessagePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     return CustomScrollView(
       slivers: <Widget>[
         CupertinoSliverNavigationBar(
-          largeTitle: Text('消息',
+          largeTitle: Text(name,
               style: Theme.of(context)
                   .textTheme
                   .headlineLarge
                   ?.copyWith(fontWeight: FontWeight.w600)),
           middle: Text(
-            '消息',
+            name,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           alwaysShowMiddle: false,

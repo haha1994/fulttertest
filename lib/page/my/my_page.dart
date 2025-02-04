@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:helloworld/component/constant/grid_menu.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../component/constant/app_router.dart';
 import '../../util/constant.dart';
 import '../setting/appearance.dart';
 
@@ -43,7 +44,7 @@ class MenuGrid extends StatelessWidget {
 }
 
 class MyPage extends HookConsumerWidget {
-  static const String name = "my";
+  static const String name = "My";
   static const String path = "/my";
 
   const MyPage({super.key});
@@ -52,27 +53,26 @@ class MyPage extends HookConsumerWidget {
   Widget build(BuildContext context, ref) {
     return CustomScrollView(slivers: <Widget>[
       CupertinoSliverNavigationBar(
-        largeTitle: Text('我的',
+        largeTitle: Text(name,
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge
                 ?.copyWith(fontWeight: FontWeight.w600)),
         middle: Text(
-          '我的',
+          name,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         alwaysShowMiddle: false,
         backgroundColor: Theme.of(context).colorScheme.surface,
       ),
       SliverList(
-        delegate: SliverChildListDelegate([const SettingsAppearanceSection(),])
-      ),
-      const SliverToBoxAdapter(
-        child: SizedBox(
-          height: 800,
-          child: Center(child: Text('滚动内容区域'),),
-        ),
-      )
+          delegate: SliverChildListDelegate([
+        const SettingsAppearanceSection(),
+        ElevatedButton(
+            onPressed: () =>
+                <void>{AppRouter.authenticatedNotifier.value = false},
+            child: const Text("Sign Out")),
+      ])),
     ]);
 
     // const SettingsAccountSection(),
@@ -89,6 +89,5 @@ class MyPage extends HookConsumerWidget {
     //     child: Text(context.l10n.restore_defaults),
     //   ),
     // ),
-
   }
 }

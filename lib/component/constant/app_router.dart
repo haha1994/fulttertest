@@ -28,7 +28,7 @@ final GlobalKey<NavigatorState> myNavigatorKey =
 /// the `parentNavigatorKey` to ensure that the dialog is displayed correctly.
 class AppRouter {
   /// The authentication status of the user.
-  static ValueNotifier<bool> authenticatedNotifier = ValueNotifier<bool>(true);
+  static ValueNotifier<bool> authenticatedNotifier = ValueNotifier<bool>(false);
 
   /// The router with the routes of pages that should be displayed.
   static final GoRouter router = GoRouter(

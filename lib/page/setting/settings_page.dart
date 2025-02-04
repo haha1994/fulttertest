@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'appearance.dart';
 
 class SettingsPage extends HookConsumerWidget {
-  static const String name = 'settings';
+  static const String name = 'Settings';
   static const String path = '/settings';
   const SettingsPage({super.key});
 
