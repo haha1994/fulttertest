@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart' hide Page;
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:helloworld/page/home/home.dart';
 import 'package:helloworld/provider/user_preferences_provider.dart';
 import 'package:helloworld/util/constant.dart';
@@ -23,6 +25,8 @@ class MyApp extends ConsumerWidget {
     final appRouter = ref.watch(appRouterProvider);
 
     return MaterialApp.router(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       title: 'Flutter Test',
       themeMode: userPreferences.themeMode,
       theme: ThemeData(

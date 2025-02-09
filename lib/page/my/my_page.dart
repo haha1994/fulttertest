@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/component/constant/grid_menu.dart';
+import 'package:helloworld/extension/context.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../component/constant/app_router.dart';
@@ -53,13 +54,13 @@ class MyPage extends HookConsumerWidget {
   Widget build(BuildContext context, ref) {
     return CustomScrollView(slivers: <Widget>[
       CupertinoSliverNavigationBar(
-        largeTitle: Text(name,
+        largeTitle: Text(context.l10n.my,
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge
                 ?.copyWith(fontWeight: FontWeight.w600)),
         middle: Text(
-          name,
+          context.l10n.my,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
         alwaysShowMiddle: false,

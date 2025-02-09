@@ -1,0 +1,12 @@
+{
+  "helloWorld": "你好，世界!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "home": "首页",
+  "search": "搜索",
+  "message": "消息",
+  "settings": "设置",
+  "my": "我的",
+  "login": "登录"
+}

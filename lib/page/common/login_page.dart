@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/extension/context.dart';
 import 'package:helloworld/page/common/base_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
@@ -60,9 +61,9 @@ class LoginPage extends HookConsumerWidget {
                       children: <Widget>[
                         Expanded(
                           child: ElevatedButton(
-                            child: const Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Text("登录"),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Text(context.l10n.login),
                             ),
                             onPressed: () {
                               // 通过_formKey.currentState 获取FormState后，
@@ -88,7 +89,7 @@ class LoginPage extends HookConsumerWidget {
       ),
     );
 
-    return BasePage(title: name, children: [SliverList(
+    return BasePage(title: context.l10n.login, children: [SliverList(
         delegate: SliverChildListDelegate([
           content,
         ])),]);

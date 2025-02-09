@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_adaptive_scaffold/flutter_adaptive_scaffold.dart';
 import 'package:go_router/go_router.dart';
+import 'package:helloworld/extension/context.dart';
 
 import '../../page/pages.dart';
 
@@ -35,14 +36,14 @@ class ScaffoldShell extends StatelessWidget {
       destinations: navigationShell.route.branches.map(
         (StatefulShellBranch e) {
           return switch (e.defaultRoute?.name) {
-            HomePage.name => const NavigationDestination(
-                icon: Icon(Icons.home), label: 'Home'),
-            SearchPage.name => const NavigationDestination(
-                icon: Icon(Icons.search), label: 'Search'),
-            MessagePage.name => const NavigationDestination(
-                icon: Icon(Icons.email), label: 'Message'),
-            MyPage.name => const NavigationDestination(
-                icon: Icon(Icons.account_circle), label: 'My'),
+            HomePage.name => NavigationDestination(
+                icon: const Icon(Icons.home), label: context.l10n.home),
+            SearchPage.name => NavigationDestination(
+                icon: const Icon(Icons.search), label: context.l10n.search),
+            MessagePage.name => NavigationDestination(
+                icon: const Icon(Icons.email), label: context.l10n.message),
+            MyPage.name => NavigationDestination(
+                icon: const Icon(Icons.account_circle), label: context.l10n.my),
             _ => throw UnimplementedError(
                 'The route ${e.defaultRoute?.name} is not implemented.',
               ),

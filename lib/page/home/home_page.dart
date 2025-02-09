@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/component/constant/app_router.dart';
+import 'package:helloworld/extension/context.dart';
 
 import 'package:helloworld/util/restart_util.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -62,7 +63,7 @@ class HomePage extends HookConsumerWidget {
                     onTap: () {
                       //导航到新路由
                       // Navigator.pushNamed(context, "home");
-                      appRouter.push("/home");
+                      // appRouter.push("/home");
                     },
                   ),
                   const Icon(Icons.all_inclusive),
@@ -98,14 +99,6 @@ class HomePage extends HookConsumerWidget {
                   )
                 ])),
         TextButton(
-          child: const Text("go to login"),
-          onPressed: () {
-            //导航到新路由
-            // Navigator.pushNamed(context, "login");
-            appRouter.push("/login");
-          },
-        ),
-        TextButton(
           child: const Text("go to search"),
           onPressed: () {
             //导航到新路由
@@ -132,7 +125,7 @@ class HomePage extends HookConsumerWidget {
       ],
     );
 
-    return BasePage(title: name, children: [
+    return BasePage(title: context.l10n.home, children: [
       SliverList(delegate: SliverChildListDelegate([content])),
     ]);
   }

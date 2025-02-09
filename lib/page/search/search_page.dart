@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:helloworld/extension/context.dart';
 import 'package:helloworld/page/common/base_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logger/logger.dart';
@@ -100,7 +101,7 @@ class SearchPage extends HookConsumerWidget {
       ),
     );
 
-    return BasePage(title: name, children: [
+    return BasePage(title: context.l10n.search, children: [
       SliverList(delegate: SliverChildListDelegate([content])),
     ]);
   }
