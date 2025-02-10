@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:helloworld/extension/context.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:helloworld/component/adaptive/adaptive_select_tile.dart';
@@ -63,24 +64,20 @@ class SettingsAppearanceSection extends HookConsumerWidget {
       // ),
       AdaptiveSelectTile<ThemeMode>(
         secondary: const Icon(SystemIcons.darkMode),
-        title: const Text("主题"),
-        // title: Text(context.l10n.theme),
+        title: Text(context.l10n.theme),
         value: userPreferences.themeMode,
-        options: const [
+        options: [
           DropdownMenuItem(
             value: ThemeMode.dark,
-            // child: Text(context.l10n.dark),
-            child: Text("深色"),
+            child: Text(context.l10n.dark),
           ),
           DropdownMenuItem(
             value: ThemeMode.light,
-            // child: Text(context.l10n.light),
-            child: Text("浅色"),
+            child: Text(context.l10n.light),
           ),
           DropdownMenuItem(
             value: ThemeMode.system,
-            // child: Text(context.l10n.system),
-            child: Text("系统"),
+            child: Text(context.l10n.system),
           ),
         ],
         onChanged: (value) {
@@ -91,7 +88,7 @@ class SettingsAppearanceSection extends HookConsumerWidget {
       ),
       ListTile(
         leading: const Icon(SystemIcons.palette),
-        title: const Text("主题颜色"),
+        title: Text(context.l10n.accent_color),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 15,
           vertical: 5,
@@ -118,7 +115,7 @@ class SettingsAppearanceSection extends HookConsumerWidget {
     }
 
     return SectionCardWithHeading(
-      heading: "外观",
+      heading: context.l10n.appearance,
       children: children,
     );
   }

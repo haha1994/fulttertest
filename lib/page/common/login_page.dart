@@ -9,6 +9,7 @@ import '../../component/constant/app_router.dart';
 class LoginPage extends HookConsumerWidget {
   static const String name = 'Login';
   static const String path = '/login';
+
   const LoginPage({super.key});
 
   @override
@@ -31,10 +32,10 @@ class LoginPage extends HookConsumerWidget {
                   TextFormField(
                     autofocus: true,
                     controller: unameController,
-                    decoration: const InputDecoration(
-                      labelText: "用户名",
+                    decoration: InputDecoration(
+                      labelText: context.l10n.username,
                       hintText: "用户名或邮箱",
-                      icon: Icon(Icons.person),
+                      icon: const Icon(Icons.person),
                     ),
                     // 校验用户名
                     validator: (v) {
@@ -43,10 +44,10 @@ class LoginPage extends HookConsumerWidget {
                   ),
                   TextFormField(
                     controller: pwdController,
-                    decoration: const InputDecoration(
-                      labelText: "密码",
+                    decoration: InputDecoration(
+                      labelText: context.l10n.password,
                       hintText: "您的登录密码",
-                      icon: Icon(Icons.lock),
+                      icon: const Icon(Icons.lock),
                     ),
                     obscureText: true,
                     //校验密码
@@ -69,7 +70,8 @@ class LoginPage extends HookConsumerWidget {
                               // 通过_formKey.currentState 获取FormState后，
                               // 调用validate()方法校验用户名密码是否合法，校验
                               // 通过后再提交数据。
-                              if ((formKey.currentState as FormState).validate()) {
+                              if ((formKey.currentState as FormState)
+                                  .validate()) {
                                 //验证通过提交数据
                                 logger.i(unameController.text);
                                 logger.i(pwdController.text);
@@ -89,9 +91,11 @@ class LoginPage extends HookConsumerWidget {
       ),
     );
 
-    return BasePage(title: context.l10n.login, children: [SliverList(
-        delegate: SliverChildListDelegate([
-          content,
-        ])),]);
+    return BasePage(title: context.l10n.login, children: [
+      SliverList(
+          delegate: SliverChildListDelegate([
+        content,
+      ])),
+    ]);
   }
 }

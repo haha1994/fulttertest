@@ -30,9 +30,9 @@ class SearchPage extends HookConsumerWidget {
                   TextFormField(
                     autofocus: true,
                     controller: searchController,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       // labelText: "搜索",
-                      hintText: "搜索",
+                      hintText: context.l10n.search,
                     ),
                     // 校验
                     validator: (v) {
@@ -49,7 +49,7 @@ class SearchPage extends HookConsumerWidget {
                             child: Builder(builder: (context) {
                           return ElevatedButton(
                             //padding: const EdgeInsets.all(16.0),
-                            child: const Text("搜索"),
+                            child: Text(context.l10n.search),
                             onPressed: () async {
                               //由于本widget也是Form的子代widget，所以可以通过下面方式获取FormState
                               if (Form.of(context).validate()) {

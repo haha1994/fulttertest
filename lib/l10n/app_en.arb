@@ -8,5 +8,21 @@
   "message": "Message",
   "settings": "Settings",
   "my": "My",
-  "login": "Login"
+  "login": "Login",
+  "language_region": "Language & Region",
+  "language": "Language",
+  "system_default": "System Default",
+  "appearance": "Appearance",
+  "adaptive": "Adaptive",
+  "compact": "Compact",
+  "extended": "Extended",
+  "theme": "Theme",
+  "dark": "Dark",
+  "light": "Light",
+  "accent_color": "Accent Color",
+  "system": "System",
+  "close": "Close",
+  "username": "Username",
+  "password": "Password",
+  "logout": "Logout"
 }

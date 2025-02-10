@@ -8,5 +8,21 @@
   "message": "消息",
   "settings": "设置",
   "my": "我的",
-  "login": "登录"
+  "login": "登录",
+  "language_region": "语言与地区",
+  "language": "语言",
+  "system_default": "系统默认",
+  "appearance": "外观",
+  "adaptive": "自适应",
+  "compact": "紧凑",
+  "extended": "宽广",
+  "theme": "主题",
+  "dark": "深色",
+  "light": "浅色",
+  "accent_color": "主色调",
+  "system": "系统",
+  "close": "关闭",
+  "username": "用户名",
+  "password": "密码",
+  "logout": "登出"
 }

@@ -72,7 +72,7 @@ class MyPage extends HookConsumerWidget {
         ElevatedButton(
             onPressed: () =>
                 <void>{AppRouter.authenticatedNotifier.value = false},
-            child: const Text("Sign Out")),
+            child: Text(context.l10n.logout)),
       ])),
     ]);
 
