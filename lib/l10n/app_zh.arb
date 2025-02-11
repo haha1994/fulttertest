@@ -24,5 +24,12 @@
   "close": "关闭",
   "username": "用户名",
   "password": "密码",
-  "logout": "登出"
+  "logout": "登出",
+  "cancel": "取消",
+  "save": "保存",
+  "pick_color_scheme": "选择配色方案",
+  "username_or_email": "用户名或邮箱",
+  "username_can_not_be_empty": "用户名不能为空",
+  "password_can_not_less_than_6": "密码不能少于6位",
+  "your_password": "您的登录密码"
 }

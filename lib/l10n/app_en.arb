@@ -24,5 +24,12 @@
   "close": "Close",
   "username": "Username",
   "password": "Password",
-  "logout": "Logout"
+  "logout": "Logout",
+  "cancel": "Cancel",
+  "save": "Save",
+  "pick_color_scheme": "Pick color scheme",
+  "username_or_email": "Username or Email",
+  "username_can_not_be_empty": "Username can not be empty",
+  "password_can_not_less_than_6": "Password can not less than 6",
+  "your_password": "Your password"
 }

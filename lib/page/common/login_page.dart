@@ -34,25 +34,29 @@ class LoginPage extends HookConsumerWidget {
                     controller: unameController,
                     decoration: InputDecoration(
                       labelText: context.l10n.username,
-                      hintText: "用户名或邮箱",
+                      hintText: context.l10n.username_or_email,
                       icon: const Icon(Icons.person),
                     ),
                     // 校验用户名
                     validator: (v) {
-                      return v!.trim().isNotEmpty ? null : "用户名不能为空";
+                      return v!.trim().isNotEmpty
+                          ? null
+                          : context.l10n.username_can_not_be_empty;
                     },
                   ),
                   TextFormField(
                     controller: pwdController,
                     decoration: InputDecoration(
                       labelText: context.l10n.password,
-                      hintText: "您的登录密码",
+                      hintText: context.l10n.your_password,
                       icon: const Icon(Icons.lock),
                     ),
                     obscureText: true,
                     //校验密码
                     validator: (v) {
-                      return v!.trim().length > 5 ? null : "密码不能少于6位";
+                      return v!.trim().length > 5
+                          ? null
+                          : context.l10n.password_can_not_less_than_6;
                     },
                   ),
                   // 登录按钮

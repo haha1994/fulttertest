@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:helloworld/extension/context.dart';
 import 'package:helloworld/util/constant.dart';
 import 'package:helloworld/provider/user_preferences_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -28,17 +29,17 @@ class ColorSchemePickerDialog extends HookConsumerWidget {
     }
 
     return AlertDialog(
-      title: const Text("选择主题颜色"),
+      title: Text(context.l10n.pick_color_scheme),
       actions: [
         OutlinedButton(
-          child: const Text("取消"),
+          child: Text(context.l10n.cancel),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
         FilledButton(
           onPressed: onOk,
-          child: const Text("保存"),
+          child: Text(context.l10n.save),
         ),
       ],
       content: SizedBox(

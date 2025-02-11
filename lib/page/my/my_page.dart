@@ -7,6 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../component/constant/app_router.dart';
 import '../../util/constant.dart';
 import '../setting/appearance.dart';
+import '../setting/language_region.dart';
 
 class MenuGrid extends StatelessWidget {
   const MenuGrid({super.key});
@@ -68,11 +69,16 @@ class MyPage extends HookConsumerWidget {
       ),
       SliverList(
           delegate: SliverChildListDelegate([
+        const SettingsLanguageRegionSection(),
         const SettingsAppearanceSection(),
-        ElevatedButton(
+        Center(
+          child: FilledButton(
             onPressed: () =>
                 <void>{AppRouter.authenticatedNotifier.value = false},
-            child: Text(context.l10n.logout)),
+            child: Text(context.l10n.logout),
+          ),
+        ),
+        const SizedBox(height: 10),
       ])),
     ]);
 

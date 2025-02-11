@@ -28,7 +28,8 @@ class SearchPage extends HookConsumerWidget {
               child: Column(
                 children: <Widget>[
                   TextFormField(
-                    autofocus: true,
+                    // fixme
+                    // autofocus: true,
                     controller: searchController,
                     decoration: InputDecoration(
                       // labelText: "搜索",
@@ -39,7 +40,7 @@ class SearchPage extends HookConsumerWidget {
                       return v!.trim().isNotEmpty ? null : "搜索条件不能为空";
                     },
                   ),
-                  // 登录按钮
+                  // 搜索按钮
                   Padding(
                     padding: const EdgeInsets.only(top: 28.0),
                     child: Row(
@@ -48,7 +49,7 @@ class SearchPage extends HookConsumerWidget {
                             // 通过Builder来获取ElevatedButton所在widget树的真正context(Element)
                             child: Builder(builder: (context) {
                           return ElevatedButton(
-                            //padding: const EdgeInsets.all(16.0),
+                            // padding: const EdgeInsets.all(16.0),
                             child: Text(context.l10n.search),
                             onPressed: () async {
                               //由于本widget也是Form的子代widget，所以可以通过下面方式获取FormState

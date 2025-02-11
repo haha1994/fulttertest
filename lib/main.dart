@@ -23,10 +23,12 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final userPreferences = ref.watch(userPreferencesProvider);
     final appRouter = ref.watch(appRouterProvider);
+    final locale = ref.watch(userPreferencesProvider.select((s) => s.locale));
 
     return MaterialApp.router(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      locale: locale.languageCode == "system" ? null : locale,
       title: 'Flutter Test',
       themeMode: userPreferences.themeMode,
       theme: ThemeData(
